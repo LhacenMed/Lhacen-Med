@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://unpkg.com/mouse-follower@1/dist/mouse-follower.min.css">
+    <style>
+      .mf-cursor {
+        position: fixed;
+        top: 0;
+        left: 0;
+        z-index: 250;
+        direction: ltr;
+        contain: layout style size;
+        pointer-events: none;
+        transition: opacity 0.3s, color 0.4s;
+      }
+      .mf-cursor:before {
+        content: "";
+        opacity: 50%;
+        position: absolute;
+        top: -24px;
+        left: -24px;
+        display: block;
+        width: 48px;
+        height: 48px;
+        /* border: solid 1px; */
+        /* border-color: white; */
+        transform: scale(0.5);
+        background: currentColor;
+        border-radius: 50%;
+        transition: transform 0.25s ease-in-out, opacity 0.1s;
+      }
+      .mf-cursor.-inverse {
+        color: red;
+      }
+      @supports (mix-blend-mode: exclusion) {
+        .mf-cursor.-exclusion {
+          mix-blend-mode: exclusion;
+        }
+        .mf-cursor.-exclusion:before {
+          background: white;
+        }
+      }
+      .mf-cursor.-pointer:before {
+        transform: scale(0.15);
+      }
+      .mf-cursor.-text:before {
+        opacity: 0.5;
+        transform: scale(1.7);
+      }
+      .mf-cursor.-text.-active:before {
+        transform: scale(1.6);
+        transition-duration: 0.2s;
+      }
+      .mf-cursor.-icon:before {
+        transform: scale(1.5);
+      }
+      .mf-cursor.-icon.-active:before {
+        transform: scale(1.4);
+      }
+      .mf-cursor.-hidden:before {
+        transform: scale(0);
+      }
+      .mf-cursor-text {
+        position: absolute;
+        top: -18px;
+        left: -18px;
+        width: 36px;
+        height: 36px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transform: scale(0) rotate(10deg);
+        opacity: 0;
+        color: #fff;
+        font-size: 16px;
+        line-height: 20px;
+        text-align: center;
+        transition: opacity 0.4s, transform 0.3s;
+      }
+      .mf-cursor.-text .mf-cursor-text, .mf-cursor.-icon .mf-cursor-text {
+        opacity: 1;
+        transform: scale(1);
+      }
+      .mf-cursor-media {
+        position: absolute;
+        width: 400px;
+        height: 400px;
+        margin: -200px 0 0 -200px;
+      }
+      .mf-cursor-media img, .mf-cursor-media video {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        border-radius: 50%;
+      }
+      @supports ((-o-object-fit: cover) or (object-fit: cover)) {
+        .mf-cursor-media img, .mf-cursor-media video {
+          position: static;
+          width: 100%;
+          height: 100%;
+          -o-object-fit: cover;
+            object-fit: cover;
+          transform: translateZ(0);
+        }
+      }
+      .mf-cursor-media-box {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+        transform: scale(0) translateZ(0);
+        padding: 1px;
+        opacity: 0;
+        border-radius: 50%;
+        transition: transform 0.35s, opacity 0.2s 0.2s;
+      }
+      .mf-cursor.-media .mf-cursor-media-box {
+        opacity: 1;
+        transform: scale(0.696);
+        transition-duration: 0.4s, 0.4s;
+        transition-delay: 0s, 0s;
+      }
+    </style>
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    <title>Full-screen NavBar</title>
+  </head>
+  <body>
+
+    <div class="container">
+      <nav>
+        <div class="logo">Mauribois.</div>
+        <div class="menu-open-btn">Menu</div>
+      </nav>
+
+      <h1 class="header">Technopolymer</h1>
+
+      <div class="menu-overlay">
+        <div class="menu-nav">
+          <div class="menu-logo">Mauribois.</div>
+          <div class="menu-close-btn">Close</div>
+        </div>
+        <div class="menu-cols">
+          <div class="col">
+            <div class="video">
+              <div class="video-preview"></div>
+              <div class="video-details">
+                <p><i class="ph-fill ph-play-circle"></i>Play reel</p>
+                <p>-01:18</p>
+              </div>
+            </div>
+          </div>
+          <div class="col">
+            <div class="menu-link">
+              <a href="#">Home</a>
+            </div>
+            <div class="menu-link">
+              <a href="#">Workplace</a>
+            </div>
+            <div class="menu-link">
+              <a href="#">Services & Models</a>
+            </div>
+            <div class="menu-link">
+              <a href="#">Our story</a>
+            </div>
+            <div class="menu-link">
+              <a href="#">Contact</a>
+            </div>
+            <div class="btn">
+              <a href="#">Take a seat</a>
+            </div>
+          </div>
+        </div>
+        <div class="menu-footer">
+          <div class="menu-divider">
+          <div class="menu-footer-copy">
+            <div class="slogan"><p>Tomorrow's Brands, Today.</p></div>
+            <div class="socials">
+              <a href="#">Twitter</a>
+              <a href="#">Instagram</a>
+              <a href="#">LinkedIn</a>
+            </div>
+          </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+
+
+    <script src="sript.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://unpkg.com/mouse-follower@1/dist/mouse-follower.min.js"></script>
+    <script>
+      const cursor = new MouseFollower({
+        el: null,
+        container: document.body,
+        className: 'mf-cursor',
+        innerClassName: 'mf-cursor-inner',
+        textClassName: 'mf-cursor-text',
+        mediaClassName: 'mf-cursor-media',
+        mediaBoxClassName: 'mf-cursor-media-box',
+        iconSvgClassName: 'mf-svgsprite',
+        iconSvgNamePrefix: '-',
+        iconSvgSrc: '',
+        dataAttr: 'cursor',
+        hiddenState: '-hidden',
+        textState: '-text',
+        iconState: '-icon',
+        activeState: '-active',
+        mediaState: '-media',
+        stateDetection: {
+            '-pointer': 'a,button',
+            '-hidden': 'iframe'
+        },
+        visible: true,
+        visibleOnState: false,
+        speed: 0.55,
+        ease: 'expo.out',
+        overwrite: true,
+        skewing: 3,
+        skewingText: 2,
+        skewingIcon: 2,
+        skewingMedia: 2,
+        skewingDelta: 0.001,
+        skewingDeltaMax: 0.15,
+        stickDelta: 0.15,
+        showTimeout: 20,
+        hideOnLeave: true,
+        hideTimeout: 300,
+        hideMediaTimeout: 300,
+        color: 'red'
+      });
+    </script>
+  </body>
+</html>

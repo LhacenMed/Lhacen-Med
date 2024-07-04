@@ -1,0 +1,259 @@
+@font-face {
+  font-family: Quicksand;
+  src: url(quicksand/Quicksand_Book.otf);
+}
+
+@font-face {
+  font-family: Quicksand-Bold;
+  src: url(quicksand/Quicksand_Bold.otf);
+}
+
+@font-face {
+  font-family: Quicksand-Light;
+  src: url(quicksand/Quicksand_Light.otf);
+}
+
+@font-face {
+  font-family: Nexa;
+  src: url(nexa/Nexa-Heavy.ttf);
+}
+
+@font-face {
+  font-family: Nexa-Light;
+  src: url(nexa/Nexa-ExtraLight.ttf);
+}
+
+@font-face {
+  font-family: CaviarDreams;
+  src: url(caviar_dreams/CaviarDreams.ttf);
+}
+
+@font-face {
+  font-family: CaviarDreams-Bold;
+  src: url(caviar_dreams/CaviarDreams_Bold.ttf);
+}
+
+@font-face {
+  font-family: LemonMilk;
+  src: url(lemon_milk/LEMONMILK-Regular.otf);
+}
+
+@font-face {
+  font-family: LemonMilk-Light;
+  src: url(lemon_milk/LEMONMILK-Light.otf);
+}
+
+@font-face {
+  font-family: LemonMilk-Medium;
+  src: url(lemon_milk/LEMONMILK-Medium.otf);
+}
+
+@font-face {
+  font-family: LemonMilk-Bold;
+  src: url(lemon_milk/LEMONMILK-Bold.otf);
+}
+
+:root {
+  --color-menu-overlay: #c57000;
+  --color-menu-text: #000;
+  --color-divider: #000;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  width: 100%;
+  height: 100vh;
+  background: url("./assets/hero.jpg") no-repeat 50% 50%;
+  background-size: cover;
+  font-family: Quicksand;
+}
+
+a {
+  text-decoration: none;
+  columns: var(--color-menu-text);
+}
+
+i {
+  position: relative;
+  top: 1px;
+}
+
+.container {
+  width: 100%;
+  height: 100%;
+}
+
+nav {
+  position: fixed;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  padding: 2em;
+  color: white;
+}
+
+.menu-open-btn {
+  cursor: pointer;
+}
+
+h1.header {
+  position: absolute;
+  bottom: 0;
+  margin: 0.25em;
+  font-weight: 400;
+  color: white;
+  font-size: 140px;
+  line-height: 1;
+  font-family: Quicksand-Bold;
+}
+
+.menu-overlay {
+  position: fixed;
+  width: 100%;
+  padding: 2em;
+  background: var(--color-menu-overlay);
+  pointer-events: none;
+  clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
+}
+
+.menu-close-btn {
+  cursor: pointer;
+}
+
+.menu-nav {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 1em;
+  color: var(--color-menu-text);
+}
+
+.menu-cols {
+  display: flex;
+}
+
+.menu-cols > div {
+  flex: 1;
+  padding: 1em 0;
+}
+
+.video {
+  width: 50%;
+}
+
+.video-preview {
+  width: 100%;
+  height: 0px;
+  background: url(./assets/hero.jpg) no-repeat 50% 50%;
+  background-size: cover;
+  border-radius: 4px;
+}
+
+.video-details {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  padding: 0.5em 0;
+  color: var(--color-menu-text);
+}
+
+.menu-link {
+  position: relative;
+  width: max-content;
+}
+
+.menu-link a {
+  font-size: 40px;
+  color: var(--color-menu-text);
+}
+
+.menu-link:after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: var(--color-menu-text);
+  transition: 0.3s all;
+}
+
+.menu-link:hover .menu-link:after {
+  width: 100%;
+}
+
+.btn {
+  position: relative;
+  margin: 2em 0;
+  border: 1px solid var(--color-menu-text);
+  width: max-content;
+  padding: 1.25em 2.5em;
+  border-radius: 5px;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.btn a {
+  color: var(--color-menu-text);
+}
+
+.btn:before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0;
+  height: 100%;
+  background: var(--color-menu-text);
+  transition: 0.3s all;
+  z-index: -1;
+}
+
+.btn:hover .btn:before {
+  width: 100%;
+}
+
+.menu-footer {
+  display: flex;
+  flex-direction: column;
+  color: var(--color-menu-text);
+}
+
+.menu-divider {
+  width: 0%;
+  height: 1px;
+  background: var(--color-divider);
+  margin: 1em 0;
+}
+
+.menu-footer-copy {
+  display: flex;
+  justify-content: space-between;
+}
+
+.socials {
+  display: flex;
+  gap: 1em;
+}
+
+@media (max-width: 900px) {
+  .menu-overlay {
+    height: 100vh;
+  }
+
+  .menu-cols {
+    display: block;
+  }
+
+  .video-preview {
+    height: 125px;
+  }
+
+  .menu-link a {
+    font-size: 30px;
+  }
+}
