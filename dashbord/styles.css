@@ -1,0 +1,315 @@
+@font-face {
+  font-family: Louguiya;
+  src: url(Louguiya.ttf);
+}
+
+@font-face {
+  font-family: Louguiya-Bold;
+  src: url(Louguiya\ Bold.ttf);
+}
+
+@font-face {
+  font-family: LouguiyaFR;
+  src: url(LouguiyaFR.ttf);
+}
+
+
+@font-face {
+  font-family: LouguiyaFR-Bold;
+  src: url(LouguiyaFR\ Bold.ttf);
+}
+
+body {
+  margin: 0;
+  font-family: Louguiya, LouguiyaFR;
+}
+
+#header_k {
+  text-align: center;
+}
+
+#nav {
+  cursor: default;
+  background-color: #00a95c;
+  padding: 0;
+}
+
+#nav:before {
+  content: '';
+  display: block;
+  width: 100%;
+  height: 5px;
+  background-color: #ce1f26;
+}
+
+#nav:after {
+  content: '';
+  display: block;
+  width: 100%;
+  height: 5px;
+  background-color: #ce1f26;
+}
+
+li {
+  text-decoration: none;
+  list-style: none;
+}
+
+.nav-li {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.logo-img {
+  width: 280px;
+}
+
+.nav-name {
+  padding-left: 30px;
+  color: white;
+  font-size: 20px;
+}
+
+/* .nav-name::after {
+  content: "";
+  width: 5px;
+  height: 29px;
+  background-color: #ce1f26;
+  display: block;
+  position: absolute;
+} */
+
+.wrapper.style1 {
+  background: #fff;
+  display: grid;
+  align-items: center;
+  justify-content: center;
+}
+
+.wrapper {
+  padding: 3em 0 1em 0;
+}
+
+.container {
+  width: 100%;
+}
+
+header.major {
+  text-align: center;
+  margin: 0 0 2em 0;
+}
+
+header.major h2 {
+  font-size: 2.25em;
+}
+
+header.major p {
+  position: relative;
+  border-top: solid 1px #e0e0e0;
+  padding: 1em 0 0 0;
+  margin: 0;
+  top: -1em;
+  font-size: 1.5em;
+  letter-spacing: -0.025em;
+}
+
+header p {
+  color: #999;
+  font-size: 1.25em;
+  position: relative;
+  margin-top: -1.25em;
+  margin-bottom: 2.25em;
+}
+
+.buttons {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.btn {
+  font-family: LouguiyaFR-Bold, Louguiya-Bold;
+  padding: 10px;
+  border: 2px solid #00a95c;
+  border-radius: 5px;
+  background: none;
+  color: white;
+  cursor: pointer;
+  margin-bottom: 10px;
+  max-width: 75%;
+  transition: color 0.4s linear;
+  position: relative;
+  z-index: 1;
+}
+
+.btn:hover {
+  color: black;
+}
+
+.btn::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: #00a95c;
+  z-index: -1;
+  transition: transform 0.5s;
+  transform-origin: 0 0;
+  transition-timing-function: cubic-bezier(0.5,1.6,0.4,0.7);
+  transform: scaleY(1);
+}
+
+.btn:hover::after {
+  transform: scaleY(0);
+}
+
+#footer {
+  padding: 3em 0 3em 0;
+  background-color: #e0e0e0;
+}
+
+#footer .container {
+  margin-bottom: 1em;
+}
+
+#footer .copyright {
+  color: black;
+  text-align: center;
+  font-size: 0.9em;
+  font-weight: bold;
+}
+
+ul.menu {
+  list-style: none;
+  padding-left: 0;
+  margin: 0 0 2em 0;
+}
+
+ul.menu li:first-child {
+  border-left: 0;
+  margin-left: 0;
+  padding-left: 0;
+}
+
+ul.menu li {
+  border-left: solid 1px #e0e0e0;
+  display: inline-block;
+  padding: 0 0 0 1em;
+  margin: 0 0 0 1em;
+}
+
+::selection {
+  background: #00a95c75
+}
+
+
+/* Device-specific adjustments */
+
+@media (max-width: 890px) and (min-width: 835px) {
+  .container {
+      flex-direction: column;
+      height: auto;
+  }
+
+  .left-side {
+    flex: 0.5;
+  }
+
+  .left-side:before {
+    bottom: 40px;
+    height: 10px;
+  }
+
+  .left-side:after {
+    top: 30px;
+    height: 10px;
+  }
+
+  .ministry-name h1 {
+    font-size: 20px;
+  }
+
+  .left-side .logo img {
+      width: 120px;
+      height: 120px;
+  }
+
+  .auth-container {
+      max-width: 80%;
+  }
+}
+
+
+@media (max-width: 834px) {
+  .container {
+      flex-direction: column;
+      height: auto;
+  }
+
+  .left-side {
+    flex: 0.5;
+  }
+
+  .left-side:before {
+    bottom: 40px;
+    height: 10px;
+  }
+
+  .left-side:after {
+    top: 30px;
+    height: 10px;
+  }
+
+  .ministry-name h1 {
+    font-size: 20px;
+  }
+
+  .left-side .logo img {
+      width: 120px;
+      height: 120px;
+  }
+
+  .auth-container {
+      max-width: 80%;
+  }
+}
+
+
+@media (max-width: 430px) and (min-width: 320px) {
+  .container {
+      flex-direction: column;
+  }
+
+  .left-side {
+    flex: 0.5;
+  }
+
+  .left-side:before {
+    bottom: 40px;
+    height: 10px;
+  }
+
+  .left-side:after {
+    top: 30px;
+      height: 10px;
+    }
+
+    .ministry-name h1 {
+      font-size: 20px;
+    }
+
+    .left-side .logo img {
+        width: 90px;
+        height: 90px;
+    }
+
+    .auth-container h2 {
+        font-size: 15px;
+    }
+
+    .auth-container button {
+        padding: 5px;
+    }
+  }
