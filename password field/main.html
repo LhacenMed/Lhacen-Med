@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="styles.css">
+  <title>password field</title>
+</head>
+<body>
+  <div class="inputBox">
+    <input type="password" required id="password">
+    <span>Password</span>
+    <div id="toggle" onclick="showHide()"></div>
+  </div>
+
+
+  <div>
+    <div class="container">
+      <input type="checkbox" name="" id="input-1" class="check-input">
+      <label for="input-1" class="checkbox">
+        <svg viewBox="0 0 22 16" fill="none">
+          <path d="M1 6.85L8.09677 14L21 1"/>
+        </svg>
+      </label>
+      <label for="input-1" class="checkbox-text">HTML</label>
+    </div>
+  </div>
+
+
+
+
+
+  <script>
+    let password = document.getElementById('password');
+    let togglePassword = document.getElementById('toggle');
+
+    function showHide() {
+      if (password.type === 'password') {
+        password.setAttribute('type', 'text');
+        togglePassword.classList.add('hide');
+      }
+      else {
+        password.setAttribute('type', 'password');
+        togglePassword.classList.remove('hide');
+      }
+    }
+  </script>
+</body>
+</html>
